@@ -1,0 +1,8 @@
+{
+  "name": "@opendoor/opendoor",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "opendoor"
+  }
+}
