@@ -1,43 +1,38 @@
 import styled from '@emotion/styled';
-import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
+import { Header } from '../components/organisms/Header/Header';
+import { BrowseHomesPage } from '../components/pages/BrowseHomesPage';
+import { useEffect } from 'react';
 
 const StyledApp = styled.div`
-  // Your style here
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  background-color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 `;
 
 export function App() {
+  useEffect(() => {
+    fetch(
+      'https://u2oyhiwlmc.execute-api.us-east-1.amazonaws.com/production/get-listings'
+    );
+  }, []);
+
   return (
     <StyledApp>
-      <NxWelcome title="opendoor" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
+      <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
+        <Route path="/" element={<BrowseHomesPage />} />
         <Route
           path="/page-2"
           element={

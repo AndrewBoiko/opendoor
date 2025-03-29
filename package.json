@@ -1,14 +1,31 @@
 {
   "name": "@opendoor/source",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run opendoor:dev",
+    "build": "nx run opendoor:build",
+    "test": "nx run opendoor:test",
+    "lint": "nx run opendoor:lint",
+    "format": "nx run opendoor:format"
+  },
   "private": true,
   "dependencies": {
-    "@emotion/react": "11.11.1",
-    "@emotion/styled": "11.11.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@fontsource/open-sans": "^5.2.5",
+    "@mui/icons-material": "^7.0.1",
+    "@mui/material": "^7.0.0",
+    "@reduxjs/toolkit": "^2.6.1",
+    "@types/mapbox-gl": "^3.4.1",
+    "leaflet": "^1.9.4",
+    "mapbox-gl": "^3.10.0",
+    "normalize.css": "^8.0.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
+    "react-leaflet": "^5.0.0-rc.2",
+    "react-map-gl": "^8.0.1",
+    "react-redux": "^9.2.0",
     "react-router-dom": "6.29.0"
   },
   "devDependencies": {
@@ -29,6 +46,7 @@
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.1.0",
     "@types/jest": "^29.5.12",
+    "@types/leaflet": "^1.9.17",
     "@types/node": "^20.0.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
