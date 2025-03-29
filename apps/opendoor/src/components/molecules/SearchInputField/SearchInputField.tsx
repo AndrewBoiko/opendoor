@@ -10,7 +10,6 @@ export const SearchInputField = ({ setSearchValue }: SearchInputFieldProps) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const searchValue = formData.get('search') as string;
-    console.log('Search value:', searchValue);
     setSearchValue(searchValue);
   };
 
@@ -19,7 +18,6 @@ export const SearchInputField = ({ setSearchValue }: SearchInputFieldProps) => {
     if (form) {
       const formData = new FormData(form);
       const searchValue = formData.get('search') as string;
-      console.log('Search value:', searchValue);
       setSearchValue(searchValue);
     }
   };
@@ -28,7 +26,15 @@ export const SearchInputField = ({ setSearchValue }: SearchInputFieldProps) => {
     <Paper
       component="form"
       onSubmit={onSubmit}
-      sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 300 }}
+      sx={{
+        p: '2px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: 300,
+        borderRadius: '16px',
+        boxShadow: 'none',
+        border: '1px solid #ccc',
+      }}
     >
       <InputBase
         name="search"

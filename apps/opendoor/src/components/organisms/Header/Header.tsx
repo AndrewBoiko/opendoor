@@ -12,45 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-// const headerStyles = css`
-//   height: 72px;
-//   background-color: #333;
-//   color: white;
-//   text-align: center;
-// `;
-
-// export const Header = () => {
-//   return (
-//     // <Box component="header" css={headerStyles}>
-//     //   <nav>
-//     //     <ul>
-//     //       <li>
-//     //         <Link to="/">Home</Link>
-//     //       </li>
-//     //       <li>
-//     //         <Link to="/page-2">Page 2</Link>
-//     //       </li>
-//     //     </ul>
-//     //   </nav>
-//     // </Box>
-//     <AppBar css={headerStyles} position="static">
-//       <Toolbar variant="dense">
-//         <IconButton
-//           edge="start"
-//           color="inherit"
-//           aria-label="menu"
-//           sx={{ mr: 2 }}
-//         >
-//           <MenuIcon />
-//         </IconButton>
-//         <Typography variant="h6" color="inherit" component="div">
-//           Photos
-//         </Typography>
-//       </Toolbar>
-//     </AppBar>
-//   );
-// };
-
 const pages = ['Page 1', 'Page 2', 'Page 3'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 

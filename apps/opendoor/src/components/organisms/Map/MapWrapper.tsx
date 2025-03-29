@@ -21,7 +21,6 @@ function LocationMarker() {
     },
     locationfound(e) {
       setPosition(e.latlng);
-      console.log(e.latlng);
       map.flyTo(e.latlng, map.getZoom());
     },
   });
@@ -38,7 +37,7 @@ function FlyToMarker({ coords }: { coords: [number, number] | null }) {
 
   useEffect(() => {
     if (coords) {
-      map.flyTo(coords, 13); // Fly to the new marker position
+      map.flyTo(coords, 13);
     }
   }, [coords, map]);
 
@@ -46,7 +45,6 @@ function FlyToMarker({ coords }: { coords: [number, number] | null }) {
 }
 
 export const MapWrapper = ({ selecteCoords }: MapWrapperProps) => {
-  console.log(selecteCoords);
   return (
     <Container style={{ padding: 0, margin: 0, maxWidth: '100%' }}>
       <MapContainer

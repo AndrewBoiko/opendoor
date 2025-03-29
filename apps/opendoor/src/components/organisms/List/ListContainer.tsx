@@ -45,7 +45,6 @@ export const ListContainer = ({
   const [sorting, setSorting] = useState('');
   const [filtering, setFiltering] = useState('');
   const [searchValue, setSearchValue] = useState('');
-  console.log('ListContainer rendered');
   if (loading) {
     return <p>Loading...</p>;
   }

@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { PropertyDataType } from '../../../models/PropertyDataType';
-import { Box, IconButton } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useEffect, useState } from 'react';
@@ -27,10 +27,16 @@ export const ListItem = ({ listItem, onListItemClick }: ListItemProps) => {
     setImageUrl(getListItemImageUrl());
   }, []);
 
-  const price =
-    listItem.userData.askingPrice || listItem.userData.updatedAskingPrice;
-  const line1 = `${listItem.zillowData?.bedrooms}bd ${listItem.zillowData?.bathrooms}
-            ba ${listItem.zillowData?.livingAreaValue} ft²`;
+  const price = listItem.userData.askingPrice || 'N/A';
+  const line1 = [
+    listItem.zillowData?.bedrooms && `${listItem.zillowData.bedrooms}bd`,
+    listItem.zillowData?.bathrooms && `${listItem.zillowData.bathrooms}ba`,
+    listItem.zillowData?.livingAreaValue &&
+      `${listItem.zillowData.livingAreaValue} ft²`,
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   const line2 = listItem.address.formattedAddress;
 
   const handleFavoriteClick = (event: React.MouseEvent) => {
@@ -39,62 +45,91 @@ export const ListItem = ({ listItem, onListItemClick }: ListItemProps) => {
   };
 
   return (
-    <Card sx={{ width: '100%', borderRadius: '16px', position: 'relative' }}>
-      <IconButton
-        onClick={handleFavoriteClick}
-        aria-label="add to favorites"
-        sx={{
-          position: 'absolute',
-          top: 8,
-          left: '50%',
-          transform: 'translateX(-160%)',
-          zIndex: 1000,
-          backgroundColor: 'white',
-          boxShadow: 1,
-          '&:hover': {
-            backgroundColor: 'rgba(160, 160, 160, 0.9)',
-          },
-        }}
-      >
-        {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-      </IconButton>
-      <CardActionArea
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          height: '200px',
-          position: 'relative',
-        }}
-        onClick={() => onListItemClick(listItem.address.location)}
-      >
-        <Box sx={{ width: '50%', height: '100%', position: 'relative' }}>
-          <CardMedia
-            component="img"
-            height="100%"
-            image={imageUrl}
-            alt="Property Image"
-            sx={{ width: '100%' }}
-          />
-        </Box>
-
-        <CardContent sx={{ width: '50%', textAlign: 'left' }}>
-          {price && (
-            <Typography gutterBottom variant="h5" component="div">
-              $ {price}
-            </Typography>
-          )}
-          {line1 && (
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {line1}
-            </Typography>
-          )}
-          {line2 && (
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {line2}
-            </Typography>
-          )}
-        </CardContent>
-      </CardActionArea>
+    <Card
+      sx={{
+        width: '100%',
+        borderRadius: '16px',
+        position: 'relative',
+        height: { xs: '400px', md: '200px' },
+      }}
+    >
+      <Grid container>
+        <Grid
+          size={{ xs: 12, md: 6 }}
+          sx={{
+            height: { xs: '200px', md: '100%' },
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          <CardActionArea
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              height: { xs: '400px', md: '200px' },
+              position: 'relative',
+            }}
+            onClick={() => onListItemClick(listItem.address.location)}
+          >
+            <CardMedia
+              component="img"
+              height="100%"
+              image={imageUrl}
+              alt="Property Image"
+              sx={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                overflow: 'hidden',
+              }}
+            />
+          </CardActionArea>
+        </Grid>
+        <Grid
+          size={{ xs: 12, md: 6 }}
+          sx={{ height: '100%', position: 'relative' }}
+        >
+          <CardContent sx={{ textAlign: 'left', paddingLeft: 4 }}>
+            {price && (
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ fontWeight: 'bold' }}
+              >
+                $ {price}
+              </Typography>
+            )}
+            {line1 && (
+              <Typography variant="body2" sx={{}}>
+                {line1}
+              </Typography>
+            )}
+            {line2 && (
+              <Typography variant="body2" sx={{}}>
+                {line2}
+              </Typography>
+            )}
+          </CardContent>
+          <IconButton
+            onClick={handleFavoriteClick}
+            aria-label="add to favorites"
+            sx={{
+              position: 'absolute',
+              top: 8,
+              right: 8,
+              zIndex: 1000,
+              backgroundColor: 'white',
+              boxShadow: 1,
+              '&:hover': {
+                backgroundColor: 'rgba(160, 160, 160, 0.9)',
+              },
+            }}
+          >
+            {isFavorite ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Grid>
+      </Grid>
     </Card>
   );
 };

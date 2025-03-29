@@ -22,7 +22,6 @@ const sortingOptions = [
 ];
 
 const filterFn = (list: PropertyDataType[], filter: string) => {
-  console.log('filterFn called', filter);
   if (filter === 'all') {
     return list;
   }
@@ -30,7 +29,6 @@ const filterFn = (list: PropertyDataType[], filter: string) => {
 };
 
 const sortingFn = (list: PropertyDataType[], sort: string) => {
-  console.log('sortingFn called', sort);
   if (sort === 'newest') {
     return [...list].sort((a, b) => {
       return (
@@ -51,7 +49,6 @@ const sortingFn = (list: PropertyDataType[], sort: string) => {
 };
 
 const searchFn = (list: PropertyDataType[], search: string) => {
-  console.log('searchFn called', search);
   return list.filter((item) =>
     item?.address?.formattedAddress
       ?.toLowerCase()
@@ -74,7 +71,6 @@ export const BrowseHomesPage = () => {
   );
 
   const onListItemClick = (coords: [number, number]) => {
-    console.log('onListItemClick', coords);
     setSelectedPropertyCoords(coords);
   };
 

@@ -1,4 +1,11 @@
-import { Container, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import {
+  Container,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from '@mui/material';
 import { SearchInputField } from '../../molecules/SearchInputField/SearchInputField';
 import { SelectOptionType } from '../../../models/SelectOptionType';
 
@@ -36,36 +43,40 @@ export const ListControlsFilters = ({
     >
       <SearchInputField setSearchValue={setSearchValue} />
       {sortingOptions?.length && (
-        <Select
-          sx={{ flexGrow: 1 }}
-          labelId="sorting-select-label"
-          id="sorting-select"
-          label="Sorting"
-          defaultValue={sortingOptions[0].value}
-          onChange={handleSortingChange}
-        >
-          {sortingOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value || ''}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
+        <FormControl sx={{ flexGrow: 1 }}>
+          <InputLabel id="sorting-select-label">Sorting</InputLabel>
+          <Select
+            labelId="sorting-select-label"
+            id="sorting-select"
+            label="Sorting"
+            defaultValue={sortingOptions[0].value}
+            onChange={handleSortingChange}
+          >
+            {sortingOptions.map((option) => (
+              <MenuItem key={option.value} value={option.value || ''}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       )}
       {filterOptions?.length && (
-        <Select
-          sx={{ flexGrow: 1 }}
-          labelId="filtering-select-label"
-          id="filtering-select"
-          label="Filtering"
-          defaultValue={filterOptions[0].value}
-          onChange={handleFilteringChange}
-        >
-          {filterOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value || ''}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </Select>
+        <FormControl sx={{ flexGrow: 1 }}>
+          <InputLabel id="filtering-select-label">Filtering</InputLabel>
+          <Select
+            labelId="filtering-select-label"
+            id="filtering-select"
+            label="Filtering"
+            defaultValue={filterOptions[0].value}
+            onChange={handleFilteringChange}
+          >
+            {filterOptions.map((option) => (
+              <MenuItem key={option.value} value={option.value || ''}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       )}
     </Container>
   );

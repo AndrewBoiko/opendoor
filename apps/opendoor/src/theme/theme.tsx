@@ -4,16 +4,16 @@ import '@fontsource/open-sans';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2', // Customize the primary color
+      main: '#f5f5f5',
     },
     secondary: {
-      main: '#5d9c7b', // Customize the secondary color
+      main: '#757575',
     },
     background: {
-      default: '#f0f0f0', // Customize the default background color
+      default: '#f0f0f0',
     },
     text: {
-      primary: '#333', // Customize the primary text color
+      primary: '#333',
     },
   },
   typography: {
@@ -45,23 +45,30 @@ const theme = createTheme({
     },
   },
   components: {
-    MuiButton: {
+    MuiButtonBase: {
       styleOverrides: {
         root: {
-          borderRadius: '8px', // Customize button border radius
-          textTransform: 'none', // Disable uppercase text
-          color: '#000000', // Customize button text color
+          textTransform: 'none',
+          color: '#000000',
         },
       },
     },
-    // MuiAppBar: {
-    //   styleOverrides: {
-    //     root: {
-    //       backgroundColor: '#ffffff', // Customize AppBar background color
-    //       color: '#000000', // Customize AppBar text color
-    //     },
-    //   },
-    // },
+
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          borderRadius: '16px',
+          backgroundColor: '#ffffff',
+          color: '#000000',
+          '&:hover': {
+            backgroundColor: '#f0f0f0',
+          },
+        },
+        icon: {
+          color: '#000000',
+        },
+      },
+    },
   },
 });
 

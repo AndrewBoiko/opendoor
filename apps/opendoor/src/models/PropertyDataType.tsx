@@ -14,14 +14,14 @@ export type PropertyDataType = {
     friendlyUrl: string;
   };
   userData: {
-    inspectionAvailability: any[]; // Adjust type if known
+    inspectionAvailability: any[]; // TODO: Add type
     askingPrice: number;
     wastewaterType: string;
     foundationIssues: boolean;
     hoaFee: number | null;
     hoaPeriod: string | null;
     linkToPhotos: string | null;
-    updatedAskingPrice: any[]; // Adjust type if known
+    updatedAskingPrice: any[]; // TODO: Add type
   };
   _id: string;
   zillowData: {

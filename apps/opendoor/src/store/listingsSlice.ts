@@ -13,7 +13,6 @@ const initialState: PropertiesState = {
   error: null,
 };
 
-// Async thunk to fetch listings
 export const fetchPropertiesList = createAsyncThunk(
   'properties/fetchPropertiesList',
   async (_, { rejectWithValue }) => {
