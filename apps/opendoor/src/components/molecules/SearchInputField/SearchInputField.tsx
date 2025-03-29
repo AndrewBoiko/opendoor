@@ -30,7 +30,7 @@ export const SearchInputField = ({ setSearchValue }: SearchInputFieldProps) => {
         p: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 300,
+        width: { xs: '100%', md: 300 },
         borderRadius: '16px',
         boxShadow: 'none',
         border: '1px solid #ccc',

@@ -57,7 +57,7 @@ export const ListItem = ({ listItem, onListItemClick }: ListItemProps) => {
         <Grid
           size={{ xs: 12, md: 6 }}
           sx={{
-            height: { xs: '200px', md: '100%' },
+            height: { xs: '300px', md: '100%' },
             position: 'relative',
             overflow: 'hidden',
           }}

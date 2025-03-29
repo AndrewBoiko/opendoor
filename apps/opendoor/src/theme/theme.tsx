@@ -4,7 +4,7 @@ import '@fontsource/open-sans';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#f5f5f5',
+      main: '#757575',
     },
     secondary: {
       main: '#757575',

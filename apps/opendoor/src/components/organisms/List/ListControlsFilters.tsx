@@ -34,11 +34,12 @@ export const ListControlsFilters = ({
 
   return (
     <Container
-      style={{
+      sx={{
         display: 'flex',
         gap: '1rem',
         margin: 0,
         padding: 0,
+        flexDirection: { xs: 'column', md: 'row' },
       }}
     >
       <SearchInputField setSearchValue={setSearchValue} />
